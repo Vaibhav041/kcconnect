@@ -1,4 +1,4 @@
-import { updateUser } from '@/utils/redux/userSlice';
+import { updateUser } from '../utils/redux/userSlice';
 import axios from 'axios';
 import Link from 'next/link'
 import { useRouter } from 'next/router';
