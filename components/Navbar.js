@@ -7,7 +7,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { updateUser } from "@/utils/redux/userSlice";
+import { updateUser } from "../utils/redux/userSlice";
 
 const Navbar = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
