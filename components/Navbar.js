@@ -49,12 +49,12 @@ const Navbar = () => {
             <EditNoteIcon />
             Write
           </Link>
-          {currentUser.isTeacher && quizPath && (
+          {currentUser?.isTeacher && quizPath && (
             <button onClick={() => router.push('/create-quiz')} className="bg-yellow-700 text-white rounded-full px-5 py-2 hover:bg-yellow-800">
               Create Quiz
             </button>
           )}
-          {currentUser.isTeacher && codingPath && (
+          {currentUser?.isTeacher && codingPath && (
             <button onClick={() => router.push('/create-challenge')} className="bg-yellow-700 text-white rounded-full px-5 py-2 hover:bg-yellow-800">
               Create Challenge
             </button>
@@ -74,7 +74,7 @@ const Navbar = () => {
               SignUp
             </button>
           )}
-          {blogPath && currentUser.isTeacher === true && (
+          {blogPath && currentUser?.isTeacher === true && (
             <button
               className="bg-red-500 px-5 py-2 font-bold text-white rounded-full"
               onClick={deleteBlog}
