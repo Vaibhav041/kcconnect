@@ -25,7 +25,6 @@ const Signin = () => {
       dispatch(updateUser(user.data));
       router.push('/');
     }
-
   }
 
   return (
