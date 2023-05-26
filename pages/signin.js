@@ -28,7 +28,7 @@ const Signin = () => {
   }
 
   return (
-    <div className='flex justify-center items-center h-[91vh] bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover' style={{backgroundImage:"url('/bg6.jpg')"}}>
+    <div className='flex justify-center items-center h-[91vh] bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover' style={{backgroundImage:"url('/login.jpg')"}}>
       <div className=' shadow-2xl h-[60%] w-[23%] bg-gray-100  p-10 rounded-xl'>
         <h1 className='text-3xl text-center'>SignUp</h1>
         <div className='flex flex-col gap-2 mt-4 mx-5'>
