@@ -35,7 +35,7 @@ const Quiz = ({ quiz }) => {
       className="flex justify-center items-center h-[91vh] w-full bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover"
       style={{ backgroundImage: "url('/bg5.png')" }}
     >
-      <div className=" h-[65%] w-[30%] text-black p-10 rounded-xl bg-gray-100">
+      <div className=" w-[30%] text-black p-10 rounded-xl bg-gray-100">
         {submitted ? (
           <div className="flex flex-col items-center text-blue-900">
             <h1 className="text-2xl mb-4">Your Score:</h1>

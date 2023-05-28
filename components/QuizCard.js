@@ -9,7 +9,7 @@ const QuizCard = ({ quiz }) => {
   const router = useRouter();
   return (
     <div
-      className=" mb-5 border-4 border-solid border-white hover:bg-blue-800 w-1/2  rounded-md p-2 shadow-xl cursor-pointer hover:shadow-2xl"
+      className=" mb-5 border-4 border-solid border-white hover:border-blue-700 w-1/2  rounded-md p-2 shadow-xl cursor-pointer hover:shadow-2xl"
       onClick={() =>
         router.push({ pathname: "/quiz/quiz", query: { quizId: quiz._id } })
       }

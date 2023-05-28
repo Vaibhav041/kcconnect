@@ -55,7 +55,7 @@ const CreateQuiz = () => {
     }
   return (
     <div className='bg-gradient-to-r from-cyan-500 to-blue-500 h-[91vh] flex justify-center items-center' style={{backgroundImage:"url('/bg5.png')"}}>
-        <div className=' h-[65%] w-[30%] text-black p-10 rounded-xl bg-gray-100 flex flex-col gap-2'>
+        <div className='w-[30%] text-black p-10 rounded-xl bg-gray-100 flex flex-col gap-2'>
             {page === 0 ? <>
                 <h1 className='text-xl font-bold'>Topic:</h1>
                 <input className='p-2' type='text' placeholder='your quiz topic' onChange={(e) => setTopic(e.target.value)}/>
