@@ -4,14 +4,19 @@ import PersonIcon from "@mui/icons-material/Person";
 import NumbersIcon from "@mui/icons-material/Numbers";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 const QuizCard = ({ quiz }) => {
   const router = useRouter();
+  const currentUser = useSelector(state => state.user.currentUser);
   return (
     <div
       className=" mb-5 border-4 border-solid border-white hover:border-blue-700 w-1/2  rounded-md p-2 shadow-xl cursor-pointer hover:shadow-2xl"
-      onClick={() =>
-        router.push({ pathname: "/quiz/quiz", query: { quizId: quiz._id } })
+      onClick={() =>{
+        if (!currentUser) {
+          return alert('Please Login');
+        }
+        router.push({ pathname: "/quiz/quiz", query: { quizId: quiz._id } })}
       }
     >
       <div className="flex justify-between text-white">

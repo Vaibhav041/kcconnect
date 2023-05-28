@@ -1,10 +1,15 @@
 import React from 'react'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 const ProblemCrad = ({problem}) => {
     const router = useRouter();
+    const currentUser = useSelector(state => state.user.currentUser);
     const handleClick = () => {
+        if (!currentUser) {
+            return alert('Please Login');
+        }
         router.push({pathname:'/coding/problem', query:{userId:problem.userId, problemId:problem._id}});
     }
   return (

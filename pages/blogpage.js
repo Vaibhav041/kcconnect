@@ -41,7 +41,7 @@ const Blog = ({ blog, Author }) => {
         <div className="mb-10">
           <h1 className="font-bold text-3xl">{blog.title}</h1>
           <p className="text-gray-500">
-            By <span className="underline font-medium">{Author}</span> ·{" "}
+            By <span className="underline font-medium">{Author.name || "tester"}</span> ·{" "}
             {blog.date} · 10 min read
           </p>
         </div>

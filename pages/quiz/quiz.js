@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import Animation from "../../lottie.json";
 import Lottie from "lottie-react";
+import { useSelector } from "react-redux";
 
-const Quiz = ({ quiz }) => {
+const Quiz = ({ quiz, teacher }) => {
   const [ques, setQues] = useState(0);
   const [selected, setSelected] = useState("");
   const [score, setScore] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [ind, setIndex] = useState(-1);
+
+  const currentUser = useSelector(state => state.user.currentUser);
 
   const handleSelect = (choice, index) => {
     setSelected(choice);
@@ -22,10 +25,19 @@ const Quiz = ({ quiz }) => {
     setSelected("");
     setIndex(-1);
   };
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    let points = score;
     if (selected === quiz.questions[ques].correctAnswer) {
       setScore((prev) => prev + 1);
+      points++;
     }
+    let response = await axios.post('https://kccblogserver.onrender.com/quiz/score', {
+      teacherEmail:teacher.email,
+      studentEmail:currentUser.email,
+      quizTitle:quiz.topic,
+      score:points
+
+    })
     setSubmitted(true);
     setSelected("");
   };
@@ -55,7 +67,6 @@ const Quiz = ({ quiz }) => {
             <div className="mt-5">
               {quiz.questions[ques].choices.map((choice, index) => {
                 let select = (ind == index) ? "selectedAnswer" : null;
-                console.log(select, "select")
                 return (
                   <li
                     key={index}
@@ -97,8 +108,9 @@ export async function getServerSideProps(context) {
   let response = await axios.get(
     `https://kccblogserver.onrender.com/quiz/get/${context.query.quizId}`
   );
+  let user = await axios.get(`https://kccblogserver.onrender.com/user/get/${response.data.userId}`);
   return {
-    props: { quiz: response.data }, // will be passed to the page component as props
+    props: { quiz: response.data, teacher:user.data }, // will be passed to the page component as props
   };
 }
 
